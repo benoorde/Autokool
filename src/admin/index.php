@@ -8,8 +8,22 @@ if (!$user || $user['role'] !== 'admin') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     check_csrf();
-    $status = $_POST['action'] === 'confirm' ? 'confirmed' : 'cancelled';
-    db()->prepare('UPDATE enrollments SET status = ? WHERE id = ?')->execute([$status, (int)$_POST['id']]);
+    $enrollId = (int)$_POST['id'];
+    $confirm = ($_POST['action'] ?? '') === 'confirm';
+    $status = $confirm ? 'confirmed' : 'cancelled';
+    db()->prepare('UPDATE enrollments SET status = ? WHERE id = ?')->execute([$status, $enrollId]);
+
+    // Kirjutame kirja õppijale (logisse)
+    $info = db()->prepare('SELECT u.email, c.title_ru, c.title_et FROM enrollments en
+                           JOIN users u ON u.id = en.user_id JOIN courses c ON c.id = en.course_id
+                           WHERE en.id = ?');
+    $info->execute([$enrollId]);
+    if ($row = $info->fetch()) {
+        $subject = $confirm ? t('confirm_subject') : t('cancel_subject');
+        $body = sprintf($confirm ? t('confirm_body') : t('cancel_body'), loc($row, 'title'));
+        db()->prepare('INSERT INTO mail_log (to_email, subject, body) VALUES (?, ?, ?)')
+            ->execute([$row['email'], $subject, $body]);
+    }
     header('Location: /admin/index.php');
     exit;
 }
@@ -21,6 +35,7 @@ $rows = db()->query('SELECT en.id, en.status, en.created_at, u.name AS user_name
                      JOIN users u ON u.id = en.user_id
                      JOIN courses c ON c.id = en.course_id
                      ORDER BY en.created_at DESC')->fetchAll();
+$mails = db()->query('SELECT to_email, subject, created_at FROM mail_log ORDER BY id DESC LIMIT 20')->fetchAll();
 ?>
 <section class="reveal">
   <h1><?= e(t('admin')) ?></h1>
@@ -41,6 +56,23 @@ $rows = db()->query('SELECT en.id, en.status, en.created_at, u.name AS user_name
             <button name="action" value="cancel" class="btn btn-small btn-ghost"><?= e(t('cancel')) ?></button>
           </form>
         </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
+</section>
+
+<section class="reveal">
+  <h2><?= e(t('mail_log')) ?></h2>
+  <?php if (!$mails): ?><p><?= e(t('mail_empty')) ?></p><?php endif; ?>
+  <table class="table">
+    <thead><tr><th><?= e(t('mail_to')) ?></th><th><?= e(t('mail_subject')) ?></th><th><?= e(t('mail_date')) ?></th></tr></thead>
+    <tbody>
+    <?php foreach ($mails as $m): ?>
+      <tr>
+        <td data-label="<?= e(t('mail_to')) ?>"><?= e($m['to_email']) ?></td>
+        <td data-label="<?= e(t('mail_subject')) ?>"><?= e($m['subject']) ?></td>
+        <td data-label="<?= e(t('mail_date')) ?>"><?= e(date('d.m.Y H:i', strtotime($m['created_at']))) ?></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
