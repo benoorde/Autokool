@@ -24,7 +24,7 @@ unset($_SESSION['flash']);
         <td data-label="<?= e(t('status')) ?>"><span class="status s-<?= e($r['status']) ?>"><?= e(t('status_' . $r['status'])) ?></span></td>
         <td>
           <?php if ($r['status'] !== 'cancelled'): ?>
-          <form method="post" action="/cancel.php" class="inline" onsubmit="return confirm('?');">
+          <form method="post" action="/cancel.php" class="inline" onsubmit="return confirm('<?= e(t('cancel_my')) ?>?');">
             <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
             <input type="hidden" name="id" value="<?= (int)$r['id'] ?>">
             <button class="btn btn-small btn-ghost" type="submit"><?= e(t('cancel_my')) ?></button>

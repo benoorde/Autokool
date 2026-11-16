@@ -25,5 +25,6 @@ require __DIR__ . '/includes/header.php';
     <label><?= e(t('password')) ?><input type="password" name="password" required></label>
     <button class="btn" type="submit"><?= e(t('submit')) ?></button>
   </form>
+  <p><a href="/forgot.php"><?= e(t('forgot')) ?></a></p>
 </section>
 <?php require __DIR__ . '/includes/footer.php';
