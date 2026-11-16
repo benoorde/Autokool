@@ -11,7 +11,7 @@ $stmt->execute([$id]);
 $course = $stmt->fetch();
 if (!$course) {
     http_response_code(404);
-    echo '<p>404</p>';
+    echo '<p>' . e(t('not_found')) . '</p>';
     require __DIR__ . '/includes/footer.php';
     exit;
 }

@@ -28,7 +28,7 @@ require __DIR__ . '/includes/header.php';
 ?>
 <section class="form-card reveal">
   <h1><?= e(t('register')) ?></h1>
-  <?php if ($error): ?><div class="flash error"><?= e($error === 'email_taken' ? t('email_taken') : 'Error') ?></div><?php endif; ?>
+  <?php if ($error): ?><div class="flash error"><?= e($error === 'email_taken' ? t('email_taken') : t('invalid_form')) ?></div><?php endif; ?>
   <form method="post">
     <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
     <label><?= e(t('name')) ?><input name="name" required></label>

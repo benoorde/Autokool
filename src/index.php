@@ -19,9 +19,9 @@ $courses = $stmt->fetchAll();
   <h1 class="glitch" data-text="<?= e(t('hero_title')) ?>"><?= e(t('hero_title')) ?></h1>
   <p><?= e(t('hero_text')) ?></p>
   <div class="counters">
-    <div><span class="count" data-to="15">0</span>+<small>instructors</small></div>
-    <div><span class="count" data-to="2400">0</span>+<small>students</small></div>
-    <div><span class="count" data-to="96">0</span>%<small>pass</small></div>
+    <div><span class="count" data-to="15">0</span>+<small><?= e(t('instructors_count')) ?></small></div>
+    <div><span class="count" data-to="2400">0</span>+<small><?= e(t('students')) ?></small></div>
+    <div><span class="count" data-to="96">0</span>%<small><?= e(t('pass_rate')) ?></small></div>
   </div>
 </section>
 
