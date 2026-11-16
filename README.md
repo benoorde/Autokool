@@ -10,7 +10,7 @@ Veebileht autokooli kursuste pakkumiseks. Keeled: vene (põhi) ja eesti.
 - Admin: registreeringute kinnitamine ja tühistamine
 - Keelevahetus (ru / et)
 - Adaptiivne kujundus, animatsioonid ja kerimisefektid
-- Tume teema järgib süsteemi seade't (prefers-color-scheme)
+- Tume teema järgib süsteemi seadet (prefers-color-scheme)
 
 ## Dokumentatsioon
 
