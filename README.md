@@ -21,6 +21,10 @@ Veebileht autokooli kursuste pakkumiseks. Keeled: vene (põhi) ja eesti.
 
 ## Käivitamine (Docker)
 
+Windowsis: topeltklõps failil `start.bat`. See käivitab Docker Desktopi, projekti ja avab lehe brauseris.
+
+Või käsurealt:
+
 ```bash
 docker compose up -d --build
 ```
