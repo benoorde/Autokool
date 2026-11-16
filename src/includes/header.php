@@ -9,12 +9,12 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= e(t('site')) ?></title>
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css?v=<?= filemtime(__DIR__ . '/../assets/style.css') ?>">
 </head>
-<body>
+<body class="page-<?= e($page) ?>">
 <header class="site-header">
   <div class="container nav">
-    <a href="/index.php" class="logo">🚗 <?= e(t('site')) ?></a>
+    <a href="/index.php" class="logo"><span class="logo-mark">A</span><?= e(t('site')) ?></a>
     <button class="menu-toggle" aria-label="menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <nav class="menu">
       <a href="/index.php" class="<?= $page === 'index' ? 'active' : '' ?>"><?= e(t('home')) ?></a>

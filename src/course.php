@@ -24,6 +24,7 @@ $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 ?>
 <section class="detail reveal">
+  <div class="detail-body">
   <a href="/index.php#courses"><?= e(t('back')) ?></a>
   <span class="badge"><?= e(loc($course, 'cat')) ?></span>
   <h1><?= e(loc($course, 'title')) ?></h1>
@@ -49,6 +50,8 @@ unset($_SESSION['flash']);
   <?php else: ?>
     <p><a href="/login.php"><?= e(t('login_required')) ?></a></p>
   <?php endif; ?>
+  </div>
+  <div class="detail-img"><img src="/assets/img/<?= e($course['image'] ?: 'instruktor.jpg') ?>" alt="<?= e(loc($course, 'title')) ?>"></div>
 </section>
 
 <section class="reveal">
@@ -56,7 +59,7 @@ unset($_SESSION['flash']);
   <?php if (!$reviews): ?><p><?= e(t('no_reviews')) ?></p><?php endif; ?>
   <?php foreach ($reviews as $r): ?>
     <blockquote class="review">
-      <strong><?= e($r['author_name']) ?></strong> — <?= str_repeat('★', (int)$r['rating']) ?>
+      <strong><?= e($r['author_name']) ?></strong> — <span class="stars"><?= str_repeat('★', (int)$r['rating']) ?></span>
       <p><?= e(loc($r, 'text')) ?></p>
     </blockquote>
   <?php endforeach; ?>

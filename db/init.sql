@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS courses (
   lessons_count INT NOT NULL DEFAULT 0,
   price_eur DECIMAL(8,2) NOT NULL,
   start_date DATE NULL,
+  image VARCHAR(100) NULL,
   FOREIGN KEY (category_id) REFERENCES categories(id),
   FOREIGN KEY (instructor_id) REFERENCES instructors(id)
 );
@@ -87,11 +88,12 @@ INSERT INTO instructors (full_name, bio_ru, bio_et, experience_years) VALUES
   ('Mart Tamm', 'Инструктор высшей категории, специализируется на начинающих водителях.', 'Kõrgema kategooria instruktor, spetsialiseerub algajatele juhtidele.', 15),
   ('Anna Kask', 'Терпеливый инструктор, помогает пройти экзамен с первого раза.', 'Kannatlik instruktor, aitab eksamile jõuda esimesel katsel.', 9);
 
-INSERT INTO courses (category_id, instructor_id, title_ru, title_et, description_ru, description_et, lessons_count, price_eur, start_date) VALUES
-  (1, 1, 'Базовый курс категории B', 'Kategooria B põhikursus', 'Полный курс теории и практики вождения легкового автомобиля.', 'Sõiduauto juhtimise täielik teooria- ja praktikakursus.', 30, 890.00, '2026-12-01'),
-  (1, 2, 'Экспресс-курс категории B', 'Kategooria B kiirkursus', 'Ускоренная подготовка для тех, кто уже знаком с управлением.', 'Kiirendatud õpe neile, kes juba sõidavad.', 15, 490.00, '2026-12-05'),
-  (2, 1, 'Курс категории A', 'Kategooria A kursus', 'Обучение управлению мотоциклом с нуля.', 'Mootorratta juhtimise õpe nullist.', 20, 690.00, '2026-12-10'),
-  (3, 2, 'Курс категории C', 'Kategooria C kursus', 'Подготовка водителей грузовых автомобилей.', 'Veokijuhtide ettevalmistus.', 40, 1490.00, NULL);
+INSERT INTO courses (category_id, instructor_id, title_ru, title_et, description_ru, description_et, lessons_count, price_eur, start_date, image) VALUES
+  (1, 1, 'Базовый курс категории B', 'Kategooria B põhikursus', 'Полный курс теории и практики вождения легкового автомобиля.', 'Sõiduauto juhtimise täielik teooria- ja praktikakursus.', 30, 890.00, '2026-12-01', 'kat-b.jpg'),
+  (1, 2, 'Экспресс-курс категории B', 'Kategooria B kiirkursus', 'Ускоренная подготовка для тех, кто уже знаком с управлением.', 'Kiirendatud õpe neile, kes juba sõidavad.', 15, 490.00, '2026-12-05', 'kat-b2.jpg'),
+  (2, 1, 'Курс категории A', 'Kategooria A kursus', 'Обучение управлению мотоциклом с нуля.', 'Mootorratta juhtimise õpe nullist.', 20, 690.00, '2026-12-10', 'kat-a.jpg'),
+  (3, 2, 'Курс категории C', 'Kategooria C kursus', 'Подготовка водителей грузовых автомобилей.', 'Veokijuhtide ettevalmistus.', 40, 1490.00, NULL, 'kat-c.jpg'),
+  (4, 1, 'Курс категории D', 'Kategooria D kursus', 'Подготовка водителей автобусов: город, трасса, работа с пассажирами.', 'Bussijuhtide ettevalmistus: linn, maantee ja töö reisijatega.', 45, 1690.00, '2027-01-15', 'kat-d.jpg');
 
 INSERT INTO users (name, email, phone, password_hash, role) VALUES
   ('Administraator', 'admin@autokool.test', '+3725000000', '$2y$10$sNrkEXv.NwUY3y6.5mc2mOAcflDFYI713XvkKwJGVy4nZNa5gUgAK', 'admin');

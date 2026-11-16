@@ -41,3 +41,7 @@ docker compose up -d --build
 - `src/includes/` — päis, jalus, tõlked, abifunktsioonid
 - `db/init.sql` — tabelid ja näidisandmed
 - `docker/` — PHP/Apache konteiner
+
+## Fotod
+
+Fotod: [Unsplash](https://unsplash.com) (Unsplash License), kaust `src/assets/img/`.
