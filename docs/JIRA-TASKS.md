@@ -26,7 +26,7 @@ Projekt: **AUTOKOOL**. Sprint 1 eeldab, et Docker töötab.
 - AK-13 Adaptiivne kujundus — *Done*
 - AK-14 Animatsioonid ja kerimisefektid — *Done*
 - AK-15 Vene ja eesti keel — *Done*
-- AK-16 Makett ja prototüüp — *Done*
+- AK-16 Makett ja prototüüp (Figma + docs/design) — *Done*
 
 ## Epic 6: Dokumentatsioon
 - AK-17 Spetsifikatsioon ISO 29148 — *Done*
@@ -34,8 +34,8 @@ Projekt: **AUTOKOOL**. Sprint 1 eeldab, et Docker töötab.
 - AK-19 Jira ülesannete nimekiri — *Done*
 - AK-20 Confluence lehtede ülesseadmine — *To Do* (kopeeri `docs/` sisu Confluence'i)
 
-## Tulevased ülesanded
-- AK-21 Otsing kursuste seas
-- AK-22 Parooli taastamine
-- AK-23 Tühistamise kasutajapoolne nupp
-- AK-24 Automaatne e-kiri kinnituse korral
+## Epic 7: Lisafunktsioonid
+- AK-21 Otsing kursuste seas — *Done*
+- AK-22 Parooli taastamine — *Done*
+- AK-23 Tühistamise kasutajapoolne nupp — *Done*
+- AK-24 Automaatne e-kiri kinnituse korral (kirjade logi) — *Done*
