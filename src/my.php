@@ -1,8 +1,10 @@
-<?php require __DIR__ . '/includes/header.php';
-if (!$user) {
+<?php
+require __DIR__ . '/includes/bootstrap.php';
+if (!current_user()) {
     header('Location: /login.php');
     exit;
 }
+require __DIR__ . '/includes/header.php';
 $stmt = db()->prepare('SELECT en.id, en.status, en.created_at, c.title_ru, c.title_et, c.start_date
                        FROM enrollments en JOIN courses c ON c.id = en.course_id
                        WHERE en.user_id = ? ORDER BY en.created_at DESC');
