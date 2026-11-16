@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024">
+<defs><linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f6feb"/><stop offset="1" stop-color="#6d28d9"/></linearGradient><filter id="sh" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#14203c" flood-opacity="0.08"/></filter></defs>
+<rect x="0" y="0" width="1440" height="1024" rx="0" fill="#f5f7fb"/>
+<rect x="0" y="0" width="1440" height="64" rx="0" fill="#ffffff"/>
+<rect x="0" y="63" width="1440" height="1" rx="0" fill="#e3e7ef"/>
+<rect x="120" y="18" width="28" height="28" rx="8" fill="#ff6b1a"/>
+<text x="160" y="39" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800" fill="#1d2433" text-anchor="start">Автошкола</text>
+<text x="820" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#1d2433" text-anchor="start">Главная</text>
+<text x="911" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#ff6b1a" text-anchor="start">Курсы</text>
+<text x="984" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#1d2433" text-anchor="start">Вход</text>
+<rect x="1048" y="16" width="130" height="32" rx="10" fill="#ff6b1a"/>
+<text x="1113" y="36.666666666667" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Регистрация</text>
+<rect x="1198" y="22" width="30" height="22" rx="6" fill="#ff6b1a"/>
+<text x="1213" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">RU</text>
+<text x="1242" y="38" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#5b6478" text-anchor="start">ET</text>
+<rect x="120" y="96" width="1200" height="480" rx="14" fill="#ffffff" filter="url(#sh)"/>
+<text x="150" y="136" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#1f6feb" text-anchor="start">← Ко всем курсам</text>
+<rect x="150" y="156" width="110" height="24" rx="12" fill="#1f6feb"/>
+<text x="205" y="173" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Категория B</text>
+<text x="150" y="222" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="800" fill="#1d2433" text-anchor="start">Базовый курс категории B</text>
+<text x="150" y="258" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#5b6478" text-anchor="start">Полный курс теории и практики вождения легкового автомобиля.</text>
+<text x="150" y="292" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#5b6478" text-anchor="start">Уроков: 30</text>
+<text x="150" y="316" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#5b6478" text-anchor="start">Цена: </text>
+<text x="198" y="316" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#1d2433" text-anchor="start">890,00 €</text>
+<rect x="880" y="136" width="410" height="220" rx="8" fill="#e8efff"/>
+<rect x="150" y="346" width="4" height="76" rx="0" fill="#ff6b1a"/>
+<text x="168" y="370" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#1d2433" text-anchor="start">Инструктор: Mart Tamm</text>
+<text x="168" y="396" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#5b6478" text-anchor="start">Инструктор высшей категории, специализируется на начинающих водителях.</text>
+<rect x="144" y="450" width="172" height="52" rx="14" fill="none" stroke="#ff6b1a" stroke-width="2"/>
+<rect x="150" y="456" width="160" height="40" rx="10" fill="#ff6b1a"/>
+<text x="230" y="481" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">Записаться</text>
+<text x="120" y="640" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" fill="#1d2433" text-anchor="start">Отзывы</text>
+<rect x="120" y="664" width="1200" height="84" rx="12" fill="#ffffff" filter="url(#sh)"/>
+<text x="144" y="696" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#1d2433" text-anchor="start">Olga</text>
+<text x="200" y="696" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#f5a623" text-anchor="start">★★★★★</text>
+<text x="144" y="724" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#5b6478" text-anchor="start">Отличный курс, сдала с первого раза!</text>
+<rect x="120" y="764" width="1200" height="84" rx="12" fill="#ffffff" filter="url(#sh)"/>
+<text x="144" y="796" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#1d2433" text-anchor="start">Jüri</text>
+<text x="200" y="796" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#f5a623" text-anchor="start">★★★★</text>
+<text x="144" y="824" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#5b6478" text-anchor="start">Хорошие инструкторы и удобное расписание.</text>
+<rect x="0" y="940" width="1440" height="1" rx="0" fill="#e3e7ef"/>
+<text x="720" y="980" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6478" text-anchor="middle">© Автошкола. Все права защищены.</text>
+</svg>

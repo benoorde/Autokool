@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autokool — prototüüp</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #1d2433; color: #fff; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 16px; background: #111827; position: sticky; top: 0; z-index: 2; }
+  .bar button { border: 0; border-radius: 8px; padding: 8px 12px; cursor: pointer; background: #2b3550; color: #fff; }
+  .bar button.on { background: #ff6b1a; }
+  .bar .sep { flex: 1; }
+  .stage { padding: 24px 16px; display: flex; justify-content: center; }
+  .frame { position: relative; width: 100%; max-width: var(--w); }
+  .frame img { width: 100%; display: block; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+  .hot { position: absolute; border-radius: 8px; cursor: pointer; }
+  body.hints .hot { outline: 2px dashed #ffcc00; background: rgba(255,204,0,.12); }
+  .note { text-align: center; color: #9aa5bd; font-size: 14px; padding-bottom: 24px; }
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="stage"><div class="frame" id="frame"><img id="img" alt=""></div></div>
+<p class="note">Нажимайте на кнопки макета, чтобы переходить между экранами. «Подсказки» показывают кликабельные области.</p>
+<script>
+const SCREENS = {"home":{"file":"01-avaleht","label":"Главная","w":1440,"h":1080,"hot":[{"x":140,"y":836,"w":130,"h":34,"to":"course"},{"x":820,"y":16,"w":50,"h":32,"to":"login"}]},"course":{"file":"02-kursus","label":"Страница курса","w":1440,"h":1024,"hot":[{"x":150,"y":118,"w":160,"h":26,"to":"home"},{"x":150,"y":456,"w":160,"h":40,"to":"my"}]},"login":{"file":"03-sisselogimine","label":"Вход","w":1440,"h":900,"hot":[{"x":540,"y":400,"w":140,"h":42,"to":"my"}]},"my":{"file":"04-minu-registreeringud","label":"Мои записи","w":1440,"h":900,"hot":[{"x":690,"y":22,"w":60,"h":24,"to":"admin"}]},"admin":{"file":"05-admin","label":"Админка","w":1440,"h":1024,"hot":[{"x":120,"y":18,"w":160,"h":30,"to":"home"}]},"mobile":{"file":"06-mobiil-avaleht","label":"Мобильная главная","w":375,"h":812,"hot":[]}};
+let theme = 'ui', current = 'home';
+const bar = document.getElementById('bar'), frame = document.getElementById('frame'), img = document.getElementById('img');
+function render() {
+  bar.innerHTML = '';
+  Object.entries(SCREENS).forEach(([k, s]) => {
+    const b = document.createElement('button');
+    b.textContent = s.label; b.className = k === current ? 'on' : '';
+    b.onclick = () => { current = k; render(); };
+    bar.appendChild(b);
+  });
+  const sep = document.createElement('span'); sep.className = 'sep'; bar.appendChild(sep);
+  [['ui', 'Цветной дизайн'], ['wireframe', 'Серый макет']].forEach(([k, l]) => {
+    const b = document.createElement('button'); b.textContent = l; b.className = theme === k ? 'on' : '';
+    b.onclick = () => { theme = k; render(); }; bar.appendChild(b);
+  });
+  const h = document.createElement('button'); h.textContent = 'Подсказки';
+  h.className = document.body.classList.contains('hints') ? 'on' : '';
+  h.onclick = () => { document.body.classList.toggle('hints'); render(); }; bar.appendChild(h);
+
+  const s = SCREENS[current];
+  frame.style.setProperty('--w', s.w + 'px');
+  img.src = theme + '/' + s.file + '.svg';
+  img.alt = s.label;
+  frame.querySelectorAll('.hot').forEach(e => e.remove());
+  s.hot.forEach(a => {
+    const d = document.createElement('a');
+    d.className = 'hot'; d.title = SCREENS[a.to].label;
+    d.style.left = (a.x / s.w * 100) + '%'; d.style.top = (a.y / s.h * 100) + '%';
+    d.style.width = (a.w / s.w * 100) + '%'; d.style.height = (a.h / s.h * 100) + '%';
+    d.onclick = () => { current = a.to; render(); window.scrollTo(0, 0); };
+    frame.appendChild(d);
+  });
+}
+render();
+</script>
+</body>
+</html>

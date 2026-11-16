@@ -17,7 +17,8 @@ Veebileht autokooli kursuste pakkumiseks. Keeled: vene (põhi) ja eesti.
 - `docs/SPEC.md` — nõuete spetsifikatsioon (ISO/IEC/IEEE 29148)
 - `docs/USER-GUIDE.md` — kasutusjuhend (ISO 26514)
 - `docs/JIRA-TASKS.md` — Jira ülesannete nimekiri
-- `docs/mockup/index.html` — makett/prototüüp
+- `docs/mockup/index.html` — lihtne HTML-makett
+- `docs/design/` — hall makett, värviline disain ja klikitav prototüüp (Figma jaoks SVG)
 
 ## Käivitamine (Docker)
 
