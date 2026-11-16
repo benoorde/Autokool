@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/includes/header.php';
+<?php require __DIR__ . '/includes/bootstrap.php';
 
 $id = (int)($_GET['id'] ?? 0);
 $stmt = db()->prepare('SELECT c.*, cat.name_ru AS cat_ru, cat.name_et AS cat_et,
@@ -11,10 +11,12 @@ $stmt->execute([$id]);
 $course = $stmt->fetch();
 if (!$course) {
     http_response_code(404);
+    require __DIR__ . '/includes/header.php';
     echo '<p>' . e(t('not_found')) . '</p>';
     require __DIR__ . '/includes/footer.php';
     exit;
 }
+require __DIR__ . '/includes/header.php';
 $rs = db()->prepare('SELECT * FROM reviews WHERE course_id = ? ORDER BY created_at DESC');
 $rs->execute([$id]);
 $reviews = $rs->fetchAll();
