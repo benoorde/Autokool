@@ -22,6 +22,8 @@ Veebileht autokooli kursuste pakkumiseks. Keeled: vene (põhi) ja eesti.
 
 ## Käivitamine (Docker)
 
+Enne esimest käivitamist: kopeeri `.env.example` nimega `.env` ja pane sinna oma paroolid (`start.bat` teeb koopia ise, kui faili pole). Faili `.env` ei lisata gitti.
+
 Windowsis: topeltklõps failil `start.bat`. See käivitab Docker Desktopi, projekti ja avab lehe brauseris.
 
 Või käsurealt:
@@ -32,8 +34,9 @@ docker compose up -d --build
 
 - Veebileht: http://localhost:8080
 - Andmebaas brauseris (phpMyAdmin): http://localhost:8081
-- Andmebaas: port 3307 (kasutaja `autokool`, parool `autokool`)
-- Admin: `admin@autokool.test` / `admin123`
+- Andmebaas: `127.0.0.1:3307` (kasutaja ja parool failis `.env`)
+- Admin: e-post ja parool failis `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`); konto luuakse käsuga `docker compose exec web php cli/create-admin.php`
+- Kõik pordid on avatud ainult sellele arvutile (127.0.0.1)
 
 ## Struktuur
 

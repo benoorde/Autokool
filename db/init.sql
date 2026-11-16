@@ -95,8 +95,7 @@ INSERT INTO courses (category_id, instructor_id, title_ru, title_et, description
   (3, 2, 'Курс категории C', 'Kategooria C kursus', 'Подготовка водителей грузовых автомобилей.', 'Veokijuhtide ettevalmistus.', 40, 1490.00, NULL, 'kat-c.jpg'),
   (4, 1, 'Курс категории D', 'Kategooria D kursus', 'Подготовка водителей автобусов: город, трасса, работа с пассажирами.', 'Bussijuhtide ettevalmistus: linn, maantee ja töö reisijatega.', 45, 1690.00, '2027-01-15', 'kat-d.jpg');
 
-INSERT INTO users (name, email, phone, password_hash, role) VALUES
-  ('Administraator', 'admin@autokool.test', '+3725000000', '$2y$10$sNrkEXv.NwUY3y6.5mc2mOAcflDFYI713XvkKwJGVy4nZNa5gUgAK', 'admin');
+-- Administraator luuakse skriptiga src/cli/create-admin.php (andmed failist .env).
 
 INSERT INTO reviews (course_id, author_name, rating, text_ru, text_et) VALUES
   (1, 'Olga', 5, 'Отличный курс, сдала с первого раза!', 'Suurepärane kursus, sain esimesel katsel läbi!'),
