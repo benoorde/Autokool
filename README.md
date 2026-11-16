@@ -31,6 +31,7 @@ docker compose up -d --build
 ```
 
 - Veebileht: http://localhost:8080
+- Andmebaas brauseris (phpMyAdmin): http://localhost:8081
 - Andmebaas: port 3307 (kasutaja `autokool`, parool `autokool`)
 - Admin: `admin@autokool.test` / `admin123`
 
