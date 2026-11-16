@@ -9,7 +9,15 @@ Veebileht autokooli kursuste pakkumiseks. Keeled: vene (põhi) ja eesti.
 - Registreerimine, sisselogimine, "minu registreeringud"
 - Admin: registreeringute kinnitamine ja tühistamine
 - Keelevahetus (ru / et)
-- Adaptiivne kujundus, tume teema, animatsioonid ja kerimisefektid
+- Adaptiivne kujundus, animatsioonid ja kerimisefektid
+- Tume teema järgib süsteemi seade't (prefers-color-scheme)
+
+## Dokumentatsioon
+
+- `docs/SPEC.md` — nõuete spetsifikatsioon (ISO/IEC/IEEE 29148)
+- `docs/USER-GUIDE.md` — kasutusjuhend (ISO 26514)
+- `docs/JIRA-TASKS.md` — Jira ülesannete nimekiri
+- `docs/mockup/index.html` — makett/prototüüp
 
 ## Käivitamine (Docker)
 

@@ -149,6 +149,7 @@ main.container { padding: 24px 0 48px; min-height: 70vh; }
   .table thead { display: none; }
   .table tr { border-bottom: 1px solid rgba(127, 127, 127, .3); padding: 8px 0; }
   .table td { border: 0; padding: 4px 8px; }
+  .table td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

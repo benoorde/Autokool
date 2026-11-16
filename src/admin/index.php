@@ -29,10 +29,10 @@ $rows = db()->query('SELECT en.id, en.status, en.created_at, u.name AS user_name
     <tbody>
     <?php foreach ($rows as $r): ?>
       <tr>
-        <td><?= e($r['user_name']) ?><br><small><?= e($r['email']) ?></small></td>
-        <td><?= e(loc($r, 'title')) ?></td>
-        <td><?= e(date('d.m.Y H:i', strtotime($r['created_at']))) ?></td>
-        <td><span class="status s-<?= e($r['status']) ?>"><?= e(t('status_' . $r['status'])) ?></span></td>
+        <td data-label="<?= e(t('user')) ?>"><?= e($r['user_name']) ?><br><small><?= e($r['email']) ?></small></td>
+        <td data-label="<?= e(t('course')) ?>"><?= e(loc($r, 'title')) ?></td>
+        <td data-label="<?= e(t('date')) ?>"><?= e(date('d.m.Y H:i', strtotime($r['created_at']))) ?></td>
+        <td data-label="<?= e(t('status')) ?>"><span class="status s-<?= e($r['status']) ?>"><?= e(t('status_' . $r['status'])) ?></span></td>
         <td>
           <form method="post" class="inline">
             <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">

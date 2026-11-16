@@ -16,9 +16,9 @@ $rows = $stmt->fetchAll();
     <tbody>
     <?php foreach ($rows as $r): ?>
       <tr>
-        <td><?= e(loc($r, 'title')) ?></td>
-        <td><?= e(date('d.m.Y', strtotime($r['created_at']))) ?></td>
-        <td><span class="status s-<?= e($r['status']) ?>"><?= e(t('status_' . $r['status'])) ?></span></td>
+        <td data-label="<?= e(t('course')) ?>"><?= e(loc($r, 'title')) ?></td>
+        <td data-label="<?= e(t('date')) ?>"><?= e(date('d.m.Y', strtotime($r['created_at']))) ?></td>
+        <td data-label="<?= e(t('status')) ?>"><span class="status s-<?= e($r['status']) ?>"><?= e(t('status_' . $r['status'])) ?></span></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
