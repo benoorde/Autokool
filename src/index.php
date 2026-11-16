@@ -7,9 +7,20 @@ $sql = 'SELECT c.*, cat.name_ru AS cat_ru, cat.name_et AS cat_et, i.full_name AS
         JOIN categories cat ON cat.id = c.category_id
         LEFT JOIN instructors i ON i.id = c.instructor_id';
 $params = [];
+$q = trim($_GET['q'] ?? '');
+$where = [];
 if ($cat) {
-    $sql .= ' WHERE c.category_id = ?';
+    $where[] = 'c.category_id = ?';
     $params[] = $cat;
+}
+if ($q !== '') {
+    $where[] = '(c.title_ru LIKE ? OR c.title_et LIKE ? OR c.description_ru LIKE ? OR c.description_et LIKE ?)';
+    for ($i = 0; $i < 4; $i++) {
+        $params[] = '%' . $q . '%';
+    }
+}
+if ($where) {
+    $sql .= ' WHERE ' . implode(' AND ', $where);
 }
 $stmt = db()->prepare($sql . ' ORDER BY c.price_eur');
 $stmt->execute($params);
@@ -26,10 +37,15 @@ $courses = $stmt->fetchAll();
 </section>
 
 <section id="courses">
+  <form class="search" method="get" action="/index.php#courses">
+    <input type="search" name="q" value="<?= e($q) ?>" placeholder="<?= e(t('search')) ?>">
+    <?php if ($cat): ?><input type="hidden" name="cat" value="<?= (int)$cat ?>"><?php endif; ?>
+    <button class="btn btn-small" type="submit"><?= e(t('search_btn')) ?></button>
+  </form>
   <div class="filters">
     <a href="/index.php" class="chip <?= !$cat ? 'on' : '' ?>"><?= e(t('all_categories')) ?></a>
     <?php foreach ($cats as $c): ?>
-      <a href="?cat=<?= (int)$c['id'] ?>" class="chip <?= $cat === (int)$c['id'] ? 'on' : '' ?>"><?= e($c['code']) ?></a>
+      <a href="?cat=<?= (int)$c['id'] ?><?= $q !== '' ? '&q=' . urlencode($q) : '' ?>" class="chip <?= $cat === (int)$c['id'] ? 'on' : '' ?>"><?= e($c['code']) ?></a>
     <?php endforeach; ?>
   </div>
 

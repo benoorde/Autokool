@@ -74,6 +74,8 @@ main.container { padding: 24px 0 48px; min-height: 70vh; }
   display: inline-block; padding: 6px 14px; margin: 4px;
   border-radius: 999px; border: 1px solid var(--muted); color: var(--text);
 }
+.search { display: flex; gap: 8px; margin: 16px 0 8px; }
+.search input { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid var(--muted); background: var(--surface); color: var(--text); font-size: 1rem; min-width: 0; }
 .chip.on, .chip:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
 .form-card { max-width: 420px; margin: 0 auto; background: var(--surface); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); }
 .form-card label { display: block; margin-bottom: 14px; font-weight: 500; }
